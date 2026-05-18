@@ -1,0 +1,187 @@
+/* Base Theme */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+body,
+.stApp {
+    background-color: rgba(20, 15, 10, 0.5);
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    color: #FDFBF7;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Global Glassmorphism Container */
+.block-container {
+    background: rgba(20, 15, 10, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 3rem !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Typography */
+h1,
+.stHeadingContainer h1 {
+    font-family: 'Cinzel', serif;
+    color: #FF8C00;
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+    text-align: center;
+}
+
+h2,
+h3,
+.stHeadingContainer h2,
+.stHeadingContainer h3 {
+    font-family: 'Playfair Display', serif;
+    color: #FDFBF7;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
+p,
+span,
+div {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Glassmorphism Cards */
+.stCard,
+.glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, #FF8C00, #DAA520);
+    color: #12100E;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 24px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+    color: #FFF;
+}
+
+/* Animations */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vinyl-spin {
+    animation: spin 4s linear infinite;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating-img {
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(218, 165, 32, 0.5));
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 140, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 140, 0, 0);
+    }
+}
+
+.pulse-button {
+    animation: pulse 2s infinite;
+}
+
+/* Streamlit specific overrides */
+.stTextInput>div>div>input {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FDFBF7;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.stSelectbox>div>div {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #FDFBF7;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.stSlider>div>div>div>div {
+    background-color: #FF8C00;
+}
+
+/* Floating Notes */
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(-15deg) scale(0.8); opacity: 0; }
+    20% { opacity: 0.7; }
+    80% { opacity: 0.7; }
+    100% { transform: translateY(-20vh) rotate(45deg) scale(1.2); opacity: 0; }
+}
+
+.music-note {
+    position: fixed;
+    color: rgba(218, 165, 32, 0.9);
+    text-shadow: 0 0 15px rgba(255, 140, 0, 0.7), 0 0 30px rgba(255, 140, 0, 0.4);
+    font-size: 5rem;
+    animation: floatUp 18s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0;
+}
+
+.note1 { left: 10%; animation-delay: 0s; font-size: 6rem; animation-duration: 20s; }
+.note2 { left: 30%; animation-delay: 6s; font-size: 8rem; animation-duration: 24s; }
+.note3 { left: 50%; animation-delay: 12s; font-size: 10rem; animation-duration: 18s; }
+.note4 { left: 70%; animation-delay: 4s; font-size: 7rem; animation-duration: 22s; }
+.note5 { left: 90%; animation-delay: 9s; font-size: 5.5rem; animation-duration: 21s; }
